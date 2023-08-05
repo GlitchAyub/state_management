@@ -2,11 +2,11 @@ import 'dart:async';
 
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:state_management/bloc/internet_bloc/internet_event.dart';
-import 'package:state_management/bloc/internet_bloc/internet_state.dart';
+import 'package:state_management/bloc/internet_event.dart';
+import 'package:state_management/bloc/internet_state.dart';
 
 class InternetBloc extends Bloc<InternetEvent, InternetState> {
-  Connectivity _connectivity = Connectivity();
+  final Connectivity _connectivity = Connectivity();
   StreamSubscription? connectivitySubscription;
   InternetBloc() : super(InternetInitialState()) {
     on<InternetLostEvent>((event, emit) => emit(InternetLostState()));
